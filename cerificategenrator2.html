@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate Generator</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #e0f7fa; /* Light blue background */
+        }
+        .input-container {
+            margin-bottom: 20px;
+            text-align: center;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .input-container input {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            width: 250px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .input-container button {
+            padding: 10px 20px;
+            background-color: #b22222;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .input-container button:hover {
+            background-color: #8b0000;
+        }
+        .certificate {
+            display: none;
+            width: 900px;
+            height: 600px;
+            text-align: center;
+            background-color: #fffacd;
+            padding-top: 50px;
+            color: black;
+            font-family: 'Times New Roman', serif;
+            border: 5px solid #b22222;
+            position: relative;
+        }
+        .logo {
+            font-size: 36px;
+            font-weight: bold;
+            color: #b22222;
+            margin-bottom: 10px;
+        }
+        .certificate h2 {
+            font-size: 50px;
+            font-weight: bold;
+        }
+        .certificate h3 {
+            font-size: 40px;
+            font-style: italic;
+            color: #b22222;
+        }
+        .certificate h4 {
+            font-size: 30px;
+            color: #b22222;
+        }
+        .certificate p {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+        .signature {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            text-align: center;
+        }
+        .signature img {
+            width: 150px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="input-container">
+        <input type="text" id="name" placeholder="Enter Your Name">
+        <input type="text" id="domain" placeholder="Enter Domain">
+        <input type="text" id="certNumber" placeholder="Enter Certificate Number">
+        <input type="text" id="duration" placeholder="Enter Duration">
+        <button onclick="generateCertificate()">Generate Certificate</button>
+    </div>
+
+    <div class="certificate" id="certificate">
+        <!-- Company Name at the Top -->
+        <div class="logo">GSLP SOLUTIONS</div>
+
+        <h2>CERTIFICATE</h2>
+        <p><strong>This Certificate is hereby bestowed upon</strong></p>
+        <h3 id="certName"></h3>
+        <p>for the exceptional performance that has led to the successful completion of</p>
+        <h4 id="certDomain"></h4>
+        <p><strong>Certificate No:</strong> <span id="certNum"></span></p>
+        <p><strong>Duration:</strong> <span id="certDuration"></span></p>
+
+        <!-- Signature at the bottom-right -->
+        <div class="signature">
+            <p>Authorized Signatory</p>
+            <img src="/WhatsApp Image 2025-01-29 at 22.28.45_f0077af4.jpg" alt="Signature">
+        </div>
+    </div>
+
+    <script>
+        function generateCertificate() {
+            document.getElementById("certName").innerText = document.getElementById("name").value;
+            document.getElementById("certDomain").innerText = document.getElementById("domain").value;
+            document.getElementById("certNum").innerText = document.getElementById("certNumber").value;
+            document.getElementById("certDuration").innerText = document.getElementById("duration").value;
+            document.getElementById("certificate").style.display = "block";
+        }
+    </script>
+</body>
+</html>
